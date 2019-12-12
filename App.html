@@ -24,63 +24,50 @@
                 </form>
             </div>
             <div class=signup-form>
-                    <form class="signup">
+                    <form action="" method="POST" class="signup">
                         <!-- add headshot-->
                         <!-- height -->
-                        <input placeholder="Your height...">
+                        <input placeholder="Your height..." required>
                         <!-- weight -->
-                        <input placeholder="Your weight....">
+                        <input placeholder="Your weight...." required>
                         <!-- gender -->
                         <label>Gender:</label>
-                        <select class="gender">
+                        <select class="gender" required>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
                         <!-- gain or loose -->
                         <label>What is your goal?</label>
-                        <select class="gainLoose">
+                        <select class="gainLoose" required>
                             <option value="gain">Gain Muscle</option>
                             <option value="loose">Loose Weight</option>
                         </select>
                         <!-- personal goals for yourself "motivation"-->
                         <label>Personal goals</label>
                         <div class="personalGoals">
-                            <input type="text" id="1">
-                            <input type="text" id="2">
-                            <input type="text" id="3">
-                            <input type="text" id="4">
-                            <input type="text" id="5">
+                            <input type="text" id="1" required>
+                            <input type="text" id="2" required>
+                            <input type="text" id="3" required>
+                            <input type="text" id="4" required>
+                            <input type="text" id="5" required>
                         </div>
-                        <input placeholder="email">
-                        <input placeholder="password">
-                        <input type="submit">
+                        <input id="username" placeholder="Username..." required>
+                        <input  id="email" placeholder="Email..." required>
+                        <input id="password" placeholder="Password..." required>
+                        <input  id="signin-button" type="submit">
                     </form>
                 </div>
             <!-- listen for signup if clicked switch display to sign up from sign in if sign in clicked then switch to display sign in -->
     </div>
-    <script src="./assets/js/script.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+    <script src="scripts/firebase/firebase.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/auth.js"></script>
 
-    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyABK3XC0Jn05qK6zfzjxSZ7D6t1G5ai_eI",
-        authDomain: "fitme-bb632.firebaseapp.com",
-        databaseURL: "https://fitme-bb632.firebaseio.com",
-        projectId: "fitme-bb632",
-        storageBucket: "fitme-bb632.appspot.com",
-        messagingSenderId: "929194468341",
-        appId: "1:929194468341:web:4d5bcb45f007743728b6bc",
-        measurementId: "G-C0FCH0S429"
-    };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-    </script>
-</body>
-</html>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use 
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    </body>
+    </html>
