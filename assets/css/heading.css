@@ -63,7 +63,7 @@ body {
 .header{
   background-color: #2E4559;
   color: #BF9673;
-  height:200px;
+  height:175px;
 }
 
 #hideMe{
@@ -72,4 +72,8 @@ body {
 
 .extraHeight{
   height: 100px;
+}
+.pageTitle{
+text-align:center;
+font-size: larger;
 }
