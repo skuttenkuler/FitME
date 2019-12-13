@@ -12,52 +12,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FitME</title>
 </head>
-<body id="loginBody">
-    <div id="login-container" class="pure-g">
-            <div class="header">
-                <h1>F i t M E</h1>    
-            </div>
-            <div class=signin-form style="display:none">
-                <form class="login">
-                    <input placeholder="email">
-                    <input placeholder="password">
-                    <input type="submit">
-                </form>
-            </div>
-            <div class=signup-form>
-                    <form action="" method="POST" class="signup">
+<body id="authBody">
+    <!-- Sign UP modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+                <form id="signup" action="" method="POST" class="pure-form">
                         <!-- add headshot-->
                         <!-- height -->
-                        <input placeholder="Your height..." >
-                        <!-- weight -->
-                        <input placeholder="Your weight...." >
-                        <!-- gender -->
-                        <label>Gender:</label>
-                        <select class="gender" >
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                        <!-- gain or loose -->
-                        <label>What is your goal?</label>
-                        <select class="gainLoose" >
-                            <option value="gain">Gain Muscle</option>
-                            <option value="loose">Loose Weight</option>
-                        </select>
+                        <fieldset>
+                            <input placeholder="Your height..." >
+                            <!-- weight -->
+                            <input placeholder="Your weight...." >
+                            <!-- gender -->
+                            <label>Gender:</label>
+                            <select class="gender" >
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <!-- gain or loose -->
+                            <label>What is your goal?</label>
+                            <select class="gainLoose" >
+                                <option value="gain">Gain Muscle</option>
+                                <option value="loose">Loose Weight</option>
+                            </select>
+                        </fieldset>
                         <!-- personal goals for yourself "motivation"-->
                         <label>Personal goals</label>
-                        <div class="personalGoals">
-                            <input type="text" id="1" >
-                            <input type="text" id="2" >
-                            <input type="text" id="3" >
-                            <input type="text" id="4" >
-                            <input type="text" id="5" >
-                        </div>
-                        <input id="username" placeholder="Username..." >
-                        <input  id="signupEmail" placeholder="Email..." >
-                        <input id="signupPassword" placeholder="Password..." >
-                        <input  id="signin-button" type="submit">
+                        <fieldset>
+                            <div class="personalGoals">
+                                <input type="text" id="1" >
+                                    <input type="text" id="2" >
+                                    <input type="text" id="3" >
+                                    <input type="text" id="4" >
+                                    <input type="text" id="5" >
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <input id="username" placeholder="Username..." >
+                            <input  id="signupEmail" placeholder="Email..." >
+                            <input id="signupPassword" placeholder="Password..." >
+                            <input  id="signin-button" type="submit">
+                        </fieldset>
+                        
                     </form>
+        </div>
+    </div>
+    <div id="signin-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div id="signin-container" class="pure-g">
+                    <div class="header">
+                        <h1>F i t M E</h1>    
+                    </div>
+                    <div class=signin-form style="display:none">
+                        <form class="login">
+                            <input id="loginEmail" placeholder="email">
+                            <input id="loginPassword" placeholder="password">
+                            <input type="submit">
+                        </form>
+                    </div>
                 </div>
+            </div>
+            
             <!-- listen for signup if clicked switch display to sign up from sign in if sign in clicked then switch to display sign in -->
     </div>
 

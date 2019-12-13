@@ -1,34 +1,7 @@
-#loginBody{
+#authBody{
     background-image: url("../images/barbell-on-the-floor-1552252.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;
     
-}
-#login-container{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        opacity: .9;
-        width: 40%;
-        height: 50%;
-        padding: 20px;  
-        color: black;
-        text-align: center;
-        display:table-cell;
-        vertical-align:middle;
-        box-shadow: 0 0 30px rgba(0, 251, 255, 0.2);
-        border-radius: 20%;
-        background-color: aquamarine;
-
-}
-#login-container h1{
-    font-size: 50px;
-    text-align: center;
-}
-.signup input, .signup select, .signup .personalGoals, .signup label {
-        
-        display:table-cell;
-        vertical-align:middle;
 }
