@@ -1,38 +1,4 @@
-.header{
-    background-color: #2E4559;
-    color: #BF9673;
-    height:200px;
-}
-.profile-picture{
-    text-align: center;
-    margin: -100px auto;
-}
-#hideMe{
-    color:white;
-}
-img{
-    border-radius: 8px;
-}
-.extraHeight{
-    height: 100px;
-}
-.workCalendar{
-    background-color:#03738C;
-    padding: 10px;
-    margin: 10px;
-}
-.goals{
-    background-color:#91E0F2;
-    padding: 10px;
-    margin: 10px;
 
-}
-
-.Atacama---Road-Trip-part-II-1-hex { color: #011140; }
-.Atacama---Road-Trip-part-II-2-hex { color: #2E4559; }
-.Atacama---Road-Trip-part-II-3-hex { color: #03738C; }
-.Atacama---Road-Trip-part-II-4-hex { color: #91E0F2; }
-.Atacama---Road-Trip-part-II-5-hex { color: #BF9673; }
 /* following all for nav hamburger */
 body {
   font-family: "Lato", sans-serif;
@@ -87,4 +53,23 @@ body {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
-/* end nav bar hamburger */
+
+#signout {
+  position: absolute;
+  bottom: 175px;
+}
+/* END NAV BAR STYLING */
+/* header styles */
+.header{
+  background-color: #2E4559;
+  color: #BF9673;
+  height:200px;
+}
+
+#hideMe{
+  color:white;
+}
+
+.extraHeight{
+  height: 100px;
+}
