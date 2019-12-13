@@ -14,61 +14,85 @@
 </head>
 <body id="authBody">
     <!-- Sign UP modal -->
-    <div id="signup-modal" class="modal">
+    <div id="signup-modal" class="modal" style="display:none">
         <div class="modal-content">
                 <form id="signup" action="" method="POST" class="pure-form">
+                        <div class="header">
+                                <h1>F i t M E</h1>    
+                            </div>
                         <!-- add headshot-->
                         <!-- height -->
-                        <fieldset>
+                        <fieldset class="pure-group" id="inputs">
                             <input placeholder="Your height..." >
                             <!-- weight -->
                             <input placeholder="Your weight...." >
                             <!-- gender -->
+                        </fieldset>
+                        <fieldset>
                             <label>Gender:</label>
                             <select class="gender" >
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                             </select>
-                            <!-- gain or loose -->
-                            <label>What is your goal?</label>
-                            <select class="gainLoose" >
-                                <option value="gain">Gain Muscle</option>
-                                <option value="loose">Loose Weight</option>
-                            </select>
                         </fieldset>
+                        
+                            <!-- gain or loose -->
+                            <fieldset class="pure-group">
+                                    <label>Goal:</label>
+                                    <select class="gainLoose" >
+                                        <option value="gain">Gain Muscle</option><br>
+                                        <option value="loose">Loose Weight</option>
+                                    </select>
+                            </fieldset>
+                            
+                      
                         <!-- personal goals for yourself "motivation"-->
+
+                        <!-- <fieldset class="pure-group">
                         <label>Personal goals</label>
-                        <fieldset>
                             <div class="personalGoals">
                                 <input type="text" id="1" >
                                     <input type="text" id="2" >
                                     <input type="text" id="3" >
                                     <input type="text" id="4" >
                                     <input type="text" id="5" >
-                            </div>
+                            </div> -->
                         </fieldset>
-                        <fieldset>
+                        <fieldset class="pure-group" id="inputs">
                             <input id="username" placeholder="Username..." >
                             <input  id="signupEmail" placeholder="Email..." >
                             <input id="signupPassword" placeholder="Password..." >
-                            <input  id="signin-button" type="submit">
+                            <input  id="signup-button" type="submit">
                         </fieldset>
                         
                     </form>
+                    <button class="accountbutton2" >Already have an account? Sign In!</button>
         </div>
     </div>
-    <div id="signin-modal" class="modal" style="display: none;">
+    <div id="signin-modal" class="modal">
             <div class="modal-content">
                 <div id="signin-container" class="pure-g">
-                    <div class="header">
-                        <h1>F i t M E</h1>    
-                    </div>
-                    <div class=signin-form style="display:none">
-                        <form class="login">
-                            <input id="loginEmail" placeholder="email">
-                            <input id="loginPassword" placeholder="password">
-                            <input type="submit">
-                        </form>
+                    
+                    <div id="signin">
+                            <form class="pure-form pure-form-aligned">
+                                    <div class="header">
+                                            <h1>F i t M E</h1>    
+                                        </div>
+                                    <fieldset>
+                                        
+                                        <div class="pure-control-group">
+                                            <label id="emailText" for="email">Email Address</label>
+                                            <input id="email" type="email" placeholder="Email Address">
+                                        </div>
+                                        <div class="pure-control-group">
+                                            <label id="passwordText" for="password">Password</label>
+                                            <input id="password" type="password" placeholder="Password">
+                                        </div>
+                                            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                                            
+                                        </fieldset>
+                                    </form>
+                                    <button class="accountbutton" >No Account? Sign Up!</button>
                     </div>
                 </div>
             </div>

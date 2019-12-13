@@ -24,3 +24,14 @@ loginForm.on("submit", function(event){
         console.log(cred.user)
     })
 })
+
+$(".accountbutton").on("click", function(){
+    console.log("clicked");
+    $("#signup-modal").attr("style", "display:visible")
+    $("#signin-modal").attr("style", "display:none")
+})
+$(".accountbutton2").on("click", function(){
+    console.log("clicked");
+    $("#signup-modal").attr("style", "display:none")
+    $("#signin-modal").attr("style", "display:visible")
+})
