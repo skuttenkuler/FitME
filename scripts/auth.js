@@ -17,12 +17,25 @@ signUpForm.on("submit", function(event){
     const password = $("#signupPassword").val();
 
     auth.createUserWithEmailAndPassword(email,password,username).then(cred => {
-        //console.log(cred);
-        const modal = $("#signup-modal");
-        //after sign in close modal
-        modal.close();
-        //for future reset the form
-        signUpForm.reset();
+        return db.collection('users').doc(cred.user.id).set({
+            // set all the info and value
+            //username:,
+            //height:,
+            //weight:,
+            //age:,
+            //activity:,
+            //gender:,
+            //goal:,
+
+        });
+        
+    }).then(() => {
+         //console.log(cred);
+         const modal = $("#signup-modal");
+         //after sign in close modal
+         modal.close();
+         //for future reset the form
+         signUpForm.reset();
     });
 });
 
