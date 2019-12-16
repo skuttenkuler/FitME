@@ -1,7 +1,11 @@
+
+
+/////////////////////////// Sign Up ///////////////////////////
 const signUpForm = $(".signup");
 signUpForm.on("submit", function(event){
     event.preventDefault();
     const user = $("#username").val();
+    //push info to database collection
     db.collection(user).add({
         name: signUpForm.username.value,
         height:signUpForm.height.value,
@@ -14,30 +18,37 @@ signUpForm.on("submit", function(event){
 
     auth.createUserWithEmailAndPassword(email,password,username).then(cred => {
         //console.log(cred);
-   
+        const modal = $("#signup-modal");
+        //after sign in close modal
+        modal.close();
+        //for future reset the form
+        signUpForm.reset();
     });
 });
 
-//login User//
+/////////////////////////// Login User ///////////////////////////
 const loginForm = $(".login");
 loginForm.on("submit", function(event){
     event.preventDefault();
 
-    // user info
+    // assign user info
     const email = $("#loginEmail").val();
     const password = $("#loginPassword").val();
-
+    // log the user in
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         //console.log(cred.user)
+        const modal = $("#signin-modal");
+        //after login close and reset Modal
+        modal.close();
         loginForm.reset();
     });
 });
 //log user out
-const logout = $(".logout");
+const logout = $(".signout");
 logout.on("click", function(event){
     event.preventDefault();
     auth.signOut().then(() => {
-        //console.log("signed out")
+        console.log("signed out")
     })
 })
 
@@ -51,6 +62,11 @@ auth.onAuthStateChanged(user => {
     }
 })
 
+
+
+
+
+//switch between sign in and sign up
 $(".accountbutton").on("click", function(){
     //console.log("clicked");
     $("#signup-modal").attr("style", "display:visible")
