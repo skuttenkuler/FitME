@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nutrition</title>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/css/heading.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 </head>
 <body>
     <div class="header">
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <a href="HomeSkelly.html">Homepage</a>
-            <a href="workoutSkelly.html">Workouts</a>
-            <a href="nutrition.html">Nutrition</a>
-            <a href="account.html">Account</a>
+            <a href="#">Homepage</a>
+            <a href="#">Workouts</a>
+            <a href="#">Nutrition</a>
+            <a href="#">Account</a>
             <a id="signout" href="#">Sign Out</a>
           </div>
           
@@ -24,19 +23,25 @@
             <button class="openbtn" onclick="openNav()">☰ Menu</button> 
     </div>
     <div class="pageTitle">
-        <h1>Nutrion</h1>
+        <h1>Account</h1>
     </div>
     </div>
 <div class="pure-g">
     <div class="pure-u-1-8" id="hideMe"><p>eigths</p></div>
     <div class="pure-u-3-4">
-        <div class="nutrition">
-
+        <div class="account information">
+        <h1>Their name/ username</h1>
+        <div class="currentStats">
+            <ul>
+                <li>Height: <span id="height"> </span></li>
+                <li>Weight: <span id="wieght"> </span></li>
+            </ul>
+        </div>
+            
         </div>
     </div>
     <div class="pure-u-1-8" id="hideMe"><p>eighths</p></div>
 </div>
 <script src="scripts/navbarscript.js"></script>
-<script src="scripts/nutritionapitesting.js"></script>
 </body>
 </html>
