@@ -1,18 +1,18 @@
 
 
 /////////////////////////// Sign Up ///////////////////////////
-const signUpForm = $(".signup");
+const signUpForm = $("#signup");
 signUpForm.on("submit", function(event){
     event.preventDefault();
     const user = $("#username").val();
     //push info to database collection
-    db.collection(user).add({
-        name: signUpForm.username.value,
-        height:signUpForm.height.value,
-        weight:signUpForm.weight.value,
-        gender:signUpForm.gender.option.value,
-        goal:signUpForm.gainlose.option.value,
-    })
+    // db.collection(user).add({
+    //     name: signUpForm.username.value,
+    //     height:signUpForm.height.value,
+    //     weight:signUpForm.weight.value,
+    //     gender:signUpForm.gender.option.value,
+    //     goal:signUpForm.gainlose.option.value,
+    // })
     const email = $("#signupEmail").val();
     const password = $("#signupPassword").val();
 
@@ -31,16 +31,16 @@ signUpForm.on("submit", function(event){
         
     }).then(() => {
          //console.log(cred);
-         const modal = $("#signup-modal");
+         
          //after sign in close modal
          //M.Modal.getInstance(modal).close();
          //for future reset the form
-         signUpForm.reset();
+        signUpForm.reset();
     });
 });
 
 /////////////////////////// Login User ///////////////////////////
-const loginForm = $(".login");
+const loginForm = $("#login");
 loginForm.on("submit", function(event){
     event.preventDefault();
 
@@ -50,9 +50,8 @@ loginForm.on("submit", function(event){
     // log the user in
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         //console.log(cred.user)
-        const modal = $("#signin-modal");
         //after login close and reset Modal
-        M.Modal.getInstance(modal).open();
+        $(".modal").attr('style', 'display: none')
         loginForm.reset();
     });
 });
@@ -78,17 +77,4 @@ auth.onAuthStateChanged(user => {
 
 
 
-
-
-//switch between sign in and sign up
-$(".accountbutton").on("click", function(){
-    //console.log("clicked");
-    $("#signup-modal").attr("style", "display:visible")
-    $("#signin-modal").attr("style", "display:none")
-})
-$(".accountbutton2").on("click", function(){
-    //console.log("clicked");
-    $("#signup-modal").attr("style", "display:none")
-    $("#signin-modal").attr("style", "display:visible")
-})
 
