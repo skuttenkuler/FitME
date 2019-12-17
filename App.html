@@ -8,7 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Pure.css -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    
     <!-- window scale with Pure.css -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FitME</title>
@@ -19,15 +18,17 @@
             <div id="mySidebar" class="sidebar">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 <a href="#">Homepage</a>
-                <a href="#">Workouts</a>
+                <a href="./pages/nutrition.html">Workouts</a>
                 <a href="#">Nutrition</a>
                 <a href="#">Account</a>
                 <a class="signout" href="#">Sign Out</a>
-              </div>
+            </div>
               
-              <div id="main">
+            <div id="main">
                 <button class="openbtn" onclick="openNav()">☰ Menu</button> 
-        </div>
+            </div>
+            <button id="signin-modal-button" class="btn btn-big">Login</button>
+    </div>
     
     
     
@@ -35,38 +36,38 @@
     
     <!-------------------------------------------- Sign UP modal -------------------------------------------->
     
-    <div class="auth-body">
-    <div id="signup-modal" class="modal">
-        <div class="modal-content">
+
+        <!-- <div id="signup-modal" class="modal">
+            <div class="modal-content">
                 <form id="signup" action="" method="POST" class="pure-form">
                         <div class="logo-header">
                                 <h1>F i t M E</h1>    
                             </div>
-                        <!-- add headshot-->
+                         add headshot-->
                         <!-- height -->
-                        <fieldset class="pure-group" id="inputs">
+                        <!-- <fieldset class="pure-group" id="inputs">
                             <input id="height" placeholder="Your height..." >
                             <!-- weight -->
-                            <input id="weight" placeholder="Your weight...." >
+                            <!-- <input id="weight" placeholder="Your weight...." > -->
                             <!-- gender -->
-                        </fieldset>
+                        <!-- </fieldset>
                         <fieldset>
                             <label>Gender:</label>
                             <select id="gender" class="gender" >
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
-                            </select>
-                        </fieldset>
+                            </select> -->
+                        <!-- </fieldset>
                         
                             <!-- gain or loose -->
-                            <fieldset class="pure-group">
+                            <!-- <fieldset class="pure-group">
                                     <label>Goal:</label>
                                     <select id="gainlose"class="gainLose" >
                                         <option value="gain">Gain Muscle</option><br>
                                         <option value="lose">Loose Weight</option>
                                     </select>
-                            </fieldset>
-                            
+                            </fieldset> -->
+                    
                       
                         <!-- personal goals for yourself "motivation"-->
 
@@ -79,7 +80,7 @@
                                     <input type="text" id="4" >
                                     <input type="text" id="5" >
                             </div> -->
-                        </fieldset>
+                        <!-- </fieldset>
                         <fieldset class="pure-group" id="inputs">
                             <input id="username" placeholder="Username..." >
                             <input  id="signupEmail" placeholder="Email..." >
@@ -89,20 +90,19 @@
                         
                     </form>
                     <button class="accountbutton2" >Already have an account? Sign In!</button>
-        </div>
-    </div>
+        </div> -->
+    
     <!-------------------------------------------- Sign In Modal -------------------------------------------->
-    <div id="signin-modal" class="modal">
+        
+        <div id="signin-modal" class="modal" >
             <div class="modal-content">
-                <div id="signin-container" class="pure-g">
-                    
-                    <div id="signin">
+                <div id="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Sign Into Your Account</h2>
+                </div>    
+                    <div id="signin-modal-body">
                             <form class="pure-form pure-form-aligned">
-                                    <div class="header">
-                                            <h1>F i t M E</h1>    
-                                        </div>
                                     <fieldset>
-                                        
                                         <div class="pure-control-group">
                                             <label id="emailText" for="email">Email Address</label>
                                             <input id="email" type="email" placeholder="Email Address">
@@ -114,74 +114,18 @@
                                             <button type="submit" class="pure-button pure-button-primary">Submit</button>
                                             
                                         </fieldset>
-                                    </form>
-                                    <button class="accountbutton" >No Account? Sign Up!</button>
+                            </form>
+                            <button class="accountbutton" >No Account? Sign Up!</button>
                     </div>
-                </div>
             </div>
         </div>
             
                 <!-------------------------------------------- DASHBOARD -------------------------------------------->
-            <div class="pure-g">
-                    <div class="pure-u-1-3 extraHeight" id="hideMe"><p>Thirds</p></div>
-                    <div class="pure-u-1-3 extraHeight">
-                    <div class="profile-picture">
-                        <img src="assets/images/guy.png" height="200px" width="120px">
-                    </div>
-                    </div>
-                    <div class="pure-u-1-3 extraHeight" id="hideMe"><p>Thirds</p></div>
-                </div>
+            <div class="dashboard">
                 <div class="pure-g">
-                    <div class="pure-u-1-8" id="hideMe"><p>Thirds</p></div>
-                    <div class="pure-u-3-4">
-                    <div class="workCalendar">
-                       <p>placeholding</p>
-                       <p>placeholding</p>
-                    </div>
-                    </div>
-                    <div class="pure-u-1-8" id="hideMe"><p>Thirds</p></div>
-                </div>
-                <div class="pure-g">
-                        <div class="pure-u-1-4" id="hideMe"><p>Thirds</p></div>
-                        <div class="pure-u-1-2">
-                        <div class="goals">
-                           <p>placeholding</p>
-                           <p>placeholding</p>
-                        </div>
-                        </div>
-                        <div class="pure-u-1-4" id="hideMe"><p>Thirds</p></div>
-                    </div>
-                    <!-------------------------------------------- Nutrition -------------------------------------------->
-                    <div class="pageTitle">
-                            <h1>Nutrion</h1>
-                        </div>
-                        </div>
-                    <div class="pure-g">
-                        <div class="pure-u-1-8" id="hideMe"><p>eigths</p></div>
-                        <div class="pure-u-3-4">
-                            <div class="nutrition">
-                    
-                            </div>
-                        </div>
-                        <div class="pure-u-1-8" id="hideMe"><p>eighths</p></div>
-                    </div>
-                    <div class="pageTitle">
-                    <!-------------------------------------------- Workout -------------------------------------------->
-                            <h1>Workout History</h1>
-                        </div>
-                        </div>
-                    <div class="pure-g">
-                        <div class="pure-u-1-8" id="hideMe"><p>eigths</p></div>
-                        <div class="pure-u-3-4">
-                            <div class="workout-calendar">
-                    
-                            </div>
-                        </div>
-                        <div class="pure-u-1-8" id="hideMe"><p>eighths</p></div>
-                    </div>
-            
+                    <div></div>
             <!-- listen for signup if clicked switch display to sign up from sign in if sign in clicked then switch to display sign in -->
-    </div>
+            </div>
 <!--------------------------------------- Firebase --------------------------------------->
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
@@ -211,6 +155,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/auth.js"></script>
     <script src="./scripts/navbarscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- The core Firebase JS SDK is always  and must be listed first -->
 
