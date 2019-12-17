@@ -23,8 +23,9 @@
     border: none;
     background: none;
 }
+
 /************************************************* NAVBAR SIDE BAR *************************************************/
-body {
+/* body {
     font-family: "Lato", sans-serif;
   }
   .sidebar {
@@ -73,7 +74,7 @@ body {
     padding: 16px;
   }
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
+  /* @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
@@ -84,7 +85,7 @@ body {
   }
   /* END NAV BAR STYLING */
   /* header styles */
-  .header{
+  /* .header{
     background-color: #2E4559;
     color: #BF9673;
     height:175px;
@@ -100,7 +101,7 @@ body {
   .pageTitle{
   text-align:center;
   font-size: larger;
-  }
+  } */
 /************************************************* DASHBOARD *************************************************/
 
 
@@ -122,4 +123,51 @@ img{
     padding: 10px;
     margin: 10px;
 
+}
+.accountbutton{
+      padding: 0;
+      border: none;
+      background: none;
+  }
+  .pageTitle{
+      color:#FFF;
+      text-align: center;
+      font-size:4em;
+      font-weight: bolder;
+  }
+  .weekData{
+      border-radius: 5px;
+      border: 1px solid #91E0F2;
+      padding: 15px;
+      margin-top: 20px;
+  }
+  #currentWeekData{
+      border-color: #03738C;
+  }
+  .userInfo{
+      border-radius: 5px;
+      border: 1px solid #91E0F2;
+      padding: 15px;
+      margin-top: 20px;
+  }
+.pageTitle{
+    color:#FFF;
+    text-align: center;
+    font-size:4em;
+    font-weight: bolder;
+}
+.weekData{
+    border-radius: 5px;
+    border: 1px solid #91E0F2;
+    padding: 15px;
+    margin-top: 20px;
+}
+#currentWeekData{
+    border-color: #03738C;
+}
+.userInfo{
+    border-radius: 5px;
+    border: 1px solid #91E0F2;
+    padding: 15px;
+    margin-top: 20px;
 }
