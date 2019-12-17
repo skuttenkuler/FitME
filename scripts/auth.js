@@ -19,13 +19,13 @@ signUpForm.on("submit", function(event){
     auth.createUserWithEmailAndPassword(email,password,username).then(cred => {
         return db.collection('users').doc(cred.user.id).set({
             // set all the info and value
-            //username:,
-            //height:,
-            //weight:,
-            //age:,
-            //activity:,
-            //gender:,
-            //goal:,
+            username: signUpForm.username.value,
+            height:signUpForm.height.value,
+            weight:signUpForm.weight.value,
+            age:signUpForm.age.value,
+            activity:signUpForm.activity.value,
+            gender:signUpForm.gender.value,
+            goal:signUpForm.goal.value,
 
         });
         
@@ -33,7 +33,7 @@ signUpForm.on("submit", function(event){
          //console.log(cred);
          const modal = $("#signup-modal");
          //after sign in close modal
-         modal.close();
+         //M.Modal.getInstance(modal).close();
          //for future reset the form
          signUpForm.reset();
     });
@@ -52,7 +52,7 @@ loginForm.on("submit", function(event){
         //console.log(cred.user)
         const modal = $("#signin-modal");
         //after login close and reset Modal
-        modal.close();
+        M.Modal.getInstance(modal).open();
         loginForm.reset();
     });
 });
@@ -62,6 +62,7 @@ logout.on("click", function(event){
     event.preventDefault();
     auth.signOut().then(() => {
         console.log("signed out")
+        login = $(".")
     })
 })
 
