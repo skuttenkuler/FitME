@@ -1,0 +1,179 @@
+
+=======
+
+/*************** NAVBAR ***************/
+.pure-menu{
+  position: fixed;
+  top: 0;
+  background-color: darkslategray;
+  color: aliceblue;
+  font-size: 25px;
+  height: 4rem;
+
+}
+/****************** MODALS ******************/
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.95);
+}
+.modal-content{
+  background-color: blue;
+  margin: 15% auto;
+  padding: 20px;
+  width: 70%;
+  align-content: center ;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.signup-modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.95);
+}
+.signup-modal-content{
+  background-color: blue;
+  margin: 15% auto;
+  padding: 20px;
+  width: 70%;
+  align-content: center ;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+/****************** HOME  ******************/
+.main-body{
+  height: 100%;
+  width: 100%;
+}
+.home{
+  width: 100%;
+  height: 900px;
+  background-image: url("../images/barbell.png");
+  background-size: cover;
+  
+}
+.welcome-banner{
+  display: flex;
+  color: whitesmoke;
+  font-size: 30px;
+  padding-top: 160px;
+  margin-left: 250px;
+}
+.motivational{
+  display: flexbox;
+  color:whitesmoke;
+  font-size: 20px;
+  width: 660px;
+  margin-left:460px;
+  
+}
+/****************** WORKOUT ******************/
+.workout{
+  width: 100%;
+  height: 900px;
+  background-image: url("../images/crossfit.png");
+  background-size: cover;
+  
+}
+.workout-banner{
+  display: flex;
+  color: whitesmoke;
+  font-size: 30px;
+  padding-top: 160px;
+  margin-left: 250px;
+}
+/****************** NUTRITION  ******************/
+.nutrition{
+  width: 100%;
+  height: 900px;
+  background-image: url("../images/food.png");
+  background-size: cover;
+  
+}
+.nutrition-banner{
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  color: #F8EA8C;
+  background-color: darkcyan;
+  border-radius: 25px;
+  font-size: 30px;
+  margin-top: 260px;
+  margin-left: 550px;
+}
+.nutrition-banner h2{
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.nutrition-data-container{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background-color:darkcyan;
+  color: #F8EA8C;
+  opacity: .9;
+  margin-top:380px;
+  margin-left:450px; 
+  border: 5px solid #A4E8E0;
+  border-radius: 15px;
+  box-shadow: 5px 10px #F8EA8C; 
+
+}
+.nutrition-data-container ul{
+  padding-left: 140px;
+  padding-top:80px;
+  list-style-type: none;
+  font-size: 40px;
+}
+/****************** GYMS ******************/
+.gyms{
+  width: 100%;
+  height: 900px;
+  background-image: url("../images/sf.png");
+  background-size: cover;
+  
+}
+.gyms-banner{
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  color: whitesmoke;
+  background-color: grey;
+  border-radius: 25px;
+  font-size: 30px;
+  margin-top: 260px;
+  margin-left: 500px;
+  padding-bottom: 20px;
+}
+.gyms-banner h2{
+  padding-left: 20px;
+  margin-bottom: 10px;
+  
+}
+.gym-api-container{
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background-color:grey;
+  color: whitesmoke;
+  opacity: .9;
+  margin-top:400px;
+  margin-left:450px; 
+  border: 5px solid darkgray;
+  border-radius: 15px;
+  box-shadow: 5px 10px rgb(45, 45, 45); 
+}
+
+
+/******************  ******************/
+
