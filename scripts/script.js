@@ -61,6 +61,13 @@ W= parseInt(weight);
 A= parseInt(age);
 ALevel= parseInt(activityLevel);
 
+$.getJSON('https://api.quotable.io/random', function(data) {
+  console.log(`${data.content} —${data.author}`)
+  quoteDiv = $("<h3>").text(data.content);
+  authorDiv = $("<h3>").text("-  " +data.author);
+  $(".quote").append(quoteDiv, authorDiv);
+})
+
 //calorie formula
 function calculateCalories(){
     if (gender === "M"){
