@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Pure.css -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    
+    <!-- test css for yelp api -->
     <!-- window scale with Pure.css -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FitME</title>
@@ -165,9 +166,11 @@
             <div class="nutrition-data-container">
                 <!-- generate workout -->
                 <ul>
-                    <li>calories: </li>
-                    <li>macros: </li>
-                    <li>water: </li>
+                    <li>Calories: <span id="recCal"> </span></li>
+                    <li>Fats: <span id="fatGrams"></span> Grams </li>
+                    <li>Proteins: <span id="proteinGrams"></span> Grams</li>
+                    <li>Carbohydrates: <span id="carbGrams"></span> Grams</li>
+                    <li>Water: 2.5 liters</li>
                 </ul>
             </div>
         </div>     
@@ -199,13 +202,26 @@
                 </div> -->
     <!------------------------------------------- GYMS -------------------------------------------->
     <div id="gyms"class="gyms">
-            <div class="gyms-banner">
-                <h2>Find a gym near you!</h2>
-            </div>
-            <div class="gym-api-container">
+    
+                <!-- input their location to pull up list of nearby gyms -->
+                <!-- to do list:  -->
+                <!-- style -->
+                <!-- js connection -->
+                <div class="form-contain">
+                    <h3 class="search-heading">Find a local gym!</h3>
+                    <form class="yelp">
+                      <input placeholder="location" id="location" type="text">
+                      <input type="submit">
+                </form>
+                <div class="gym-container">
+
+                </div>
+                  </div>
+                <!--  end input  -->
+            
                 <!-- generate workout -->
                 
-            </div>
+            
         </div>     
     
 </div>
