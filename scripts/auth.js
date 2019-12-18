@@ -11,9 +11,20 @@ const signupForm = $('#signup');
   
     // sign up the user
     auth.createUserWithEmailAndPassword(email, password).then(cred => {
-      // close the signup modal & reset form
-      
-      signupForm.reset();
+        console.log(cred.user.uid);
+        var userID = cred.user.uid;
+        console.log(userID)
+      return db.collection("users").doc(userID).set({
+            name:$("#name").val(),
+            height: $("#height").val(),
+            weight:$("#weight").val(),
+            age:$("#age").val(),
+            days:$("#days").val(),
+            gender:$("#gender").val(),
+            activity:$("#activity").val(),
+      });
+    }).then(() => {
+      signupForm.empty();
     });
   });
 /////////////////////////// Login User ///////////////////////////
@@ -31,7 +42,7 @@ const loginForm = $("#login");
         $('#signin-modal').attr('style', 'display: none');
         $('#logout-btn').attr('style', 'display:block');
         console.log(cred);
-      loginForm.reset();
+      loginForm.empty();
     });
   
   });
@@ -42,17 +53,42 @@ logout.on("click", function(event){
     event.preventDefault();
     auth.signOut().then(() => {
         console.log("signed out")
-    })
-})
+    });
+});
 
 // listen for state of auth status change
 
 auth.onAuthStateChanged(user => {
     if (user) {
-      console.log('user logged in: ', user);
-    } else {
-      console.log('user logged out');
-    }
-  })
+      //console.log("signed in");
+      db.collection("users").doc(user.uid).get().then(doc => {
+          userData = doc.data();
+          // console.log(userData.name)
+          //welcome banner to dashboard
+          username = userData.name;
+          welcome = $("<h1>").text("Welcome " + username + "!");
+          accountDetails = $("<div>").addClass("accDetails");
+          stats = $("<h2>").text("Your personal stats : ");
+          age = $("<p>").text("You are " + userData.age + " years old.");
+          height = $("<p>").text("Your are " + userData.height + " inches tall.");
+          weight = $("<p>").text("You weigh " + userData.weight + " lbs.");
+          
+          accountDetails.append(stats, age, height, weight);
+          $(".welcome-banner").append(welcome);
+          $("#account-details").append(accountDetails);
+      });
+      $('#signin-modal').attr('style', 'display: none');
+      $('#logout-btn').attr('style', 'display:block');
+      $('#login-btn').attr('style', 'display:none');
+      }   
+        else {
+          console.log('user logged out');
+          $("#account-details").empty()
+          $('#signin-modal').attr('style', 'display: block');
+      
+          }
+        
+      });
+
 
   

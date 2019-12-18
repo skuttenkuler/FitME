@@ -24,7 +24,7 @@
   background-color: rgba(0,0,0,0.95);
 }
 .modal-content{
-  background-color: blue;
+  background-color: lightblue;
   margin: 15% auto;
   padding: 20px;
   width: 70%;
@@ -43,12 +43,26 @@
   background-color: rgba(0,0,0,0.95);
 }
 .signup-modal-content{
-  background-color: blue;
+  background-color: lightblue;
   margin: 15% auto;
   padding: 20px;
   width: 70%;
   align-content: center ;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+#account-modal{
+  display: none;
+}
+.accDetails{
+  width: 900px;
+  height: 140px;
+}
+.close {
+  color: #ccc;
+  float: left;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
 }
 /****************** HOME  ******************/
 .main-body{
@@ -96,6 +110,24 @@
   padding-top: 160px;
   margin-left: 250px;
 }
+.workout-container{
+  width: 100%;
+  height: 200px;
+  margin-left: 200px;
+}
+.w1{
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  height: 400px;
+  line-height: 30px;
+  background: gray;
+  color: white;
+  font-size: 30px;
+  margin: 0 4px;
+  text-align: center;
+}
+
 /****************** NUTRITION  ******************/
 .nutrition{
   width: 100%;
@@ -142,9 +174,9 @@
 /****************** GYMS ******************/
 .gyms{
   width: 100%;
-  height: 900px;
-  background-image: url("../images/sf.png");
-  background-size: cover;
+  height: 1200px;
+  background-color: pink;
+
   
 }
 .gyms-banner{
@@ -164,20 +196,55 @@
   margin-bottom: 10px;
   
 }
-.gym-api-container{
-  position: absolute;
-  width: 600px;
-  height: 400px;
-  background-color:grey;
-  color: whitesmoke;
-  opacity: .9;
-  margin-top:400px;
-  margin-left:450px; 
-  border: 5px solid darkgray;
-  border-radius: 15px;
-  box-shadow: 5px 10px rgb(45, 45, 45); 
-}
+
 
 
 /******************  ******************/
 
+/*  yelp*/
+.form-contain {
+    border: 2px solid black;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    position:relative;
+    left:30%;
+  }
+.gymDiv{
+    width:575px;
+    max-height: 100px;
+}
+  input {
+    display: block;
+    margin: 10px;
+  }
+
+  /* .container {
+    border: 2px solid black;
+    overflow: auto;
+    width: 60%;
+    display: block;
+    margin: 10px auto;
+    padding: 20px;
+    height: 80vh;
+  } */
+
+  h2 {
+    text-align: center;
+
+  }
+ 
+  p {
+    text-align: center;
+  }
+
+  .thumbnail {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    float: left;
+  }
+
+  .address {
+    margin-bottom: 120px;
+  }
