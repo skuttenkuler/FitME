@@ -12,6 +12,7 @@
     <!-- test css for yelp api -->
     <!-- window scale with Pure.css -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <title>FitME</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
         <div class="pure-menu pure-menu-horizontal">
                 <a href="#home" class="pure-menu-heading pure-menu-link">FitME</a>
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Account</a></li>
+                    <li class="pure-menu-item"><a href="#" id="account-btn"class="pure-menu-link">Account</a></li>
                     <li class="pure-menu-item"><a href="#workout" class="pure-menu-link">Workout</a></li>
                     <li class="pure-menu-item"><a href="#nutrition" class="pure-menu-link">Nutrition</a></li>
                     <li class="pure-menu-item"><a href="#gyms" class="pure-menu-link">Gyms</a></li>
@@ -38,17 +39,17 @@
             <div id="signin-modal" class="modal">
                 <div class="modal-content">
                     <div id="signin-container" class="pure-g">
-                        <div id="signin">
+                        <div id="signin" class="pure-u">
                             <form id="login" class="pure-form pure-form-aligned">
                                 <fieldset>
                                             
                                     <div class="pure-control-group">
                                         <label id="emailText" for="email">Email Address</label>
-                                        <input id="email" type="email" placeholder="Email Address">
+                                        <input id="loginEmail" type="email" placeholder="Email Address">
                                     </div>
                                     <div class="pure-control-group">
                                         <label id="passwordText" for="password">Password</label>
-                                        <input id="password" type="password" placeholder="Password">
+                                        <input id="loginPassword" type="password" placeholder="Password">
                                     </div>
                                         <button type="submit" id="signin-btn" class="pure-button pure-button-primary">Submit</button>
                                                 
@@ -65,35 +66,46 @@
                     <div class="signup-modal-content">
                             <form id="signup" action="" method="POST" class="pure-form pure-form-aligned">
                                     <div class="logo-header">
-                                            <h1>F i t M E</h1>    
+                                            <h1>F i t M E Account Registration</h1>    
                                         </div>
                                     <!-- add headshot-->
                                     <!-- height -->
                                     <fieldset class="pure-group" id="inputs">
-                                        <input id="height" placeholder="Your height..." >
+                                        <input id="height" placeholder="Your height..ex. 5.7 or 4.3" >
+                                        <p>must be in inches: 4ft: 48in, 5ft: 60in, 6ft: 72, 7ft: 84in</p>
                                         <!-- weight -->
-                                        <input id="weight" placeholder="Your weight...." >
-                                        <!-- gender -->
+                                        <input id="weight" placeholder="Your weight...." ><span>
+                                        <p>pounds</p>
+                                        <input id="age" placeholder="Your age...">
+                                        <p>How many days do you plan to workout each week?</p>
+                                        <input id="days" placeholder="...">
                                     </fieldset>
                                     <fieldset>
                                         <label>Gender:</label>
-                                        <select id="gender" class="gender" >
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                        <select id="gender" class="gender">
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
                                         </select>
                                     </fieldset>
-                                    
-                                        <!-- gain or loose -->
+                                    <fieldset>
+                                        <label>How active are you?</label>
+                                        <select id="activity" class="activity" >
+                                            <option value="0">Not very</option>
+                                            <option value="1">Moderate</option>
+                                            <option value="2">Very</option>
+                                        </select>
+                                    </fieldset>
+                                    <!-- gain or loose -->
                                         <fieldset class="pure-group">
                                                 <label>Goal:</label>
                                                 <select id="gainlose"class="gainLose" >
-                                                    <option value="gain">Gain Muscle</option><br>
-                                                    <option value="lose">Loose Weight</option>
+                                                    <option value="0">Loose Weight</option><br>
+                                                    <option value="1">Gain Muscle</option>
                                                 </select>
                                         </fieldset>
                                     </fieldset>
                                     <fieldset class="pure-group" id="inputs">
-                                        <input id="username" placeholder="Username..." >
+                                        <input id="name" placeholder="Name..." >
                                         <input  id="signupEmail" placeholder="Email..." >
                                         <input id="signupPassword" placeholder="Password..." >
                                         <input  id="signup-button" type="submit">
@@ -103,18 +115,26 @@
                             <button class="accountbutton2" >Already have an account? Sign In!</button>
                     </div>
                 </div>
-
+    <!-------------------------------------------- Account Modal -------------------------------------------->
+                <div id="account-modal" class="modal">
+                    <div class="modal-content">
+                        <div id="account-container" class="pure-g">
+                            <div id="account-details" class="pure-u">
+                                <span class="close">&times;</span>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
     <!-------------------------------------------- DASHBOARD -------------------------------------------->
     <div id="home" class="home">
         <div class="welcome-banner">
-            <H2>welcome user</H2>
+            
         </div>
         <div class="motivational">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi rem eaque corporis facilis iure eligendi ea, iusto eveniet? Eaque est commodi nulla perferendis ad recusandae molestias rerum iure fugit modi.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius consectetur id veritatis quibusdam asperiores repellendus similique odit in, laboriosam, optio aut sit porro distinctio ipsam, nobis deleniti harum ipsa ratione?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, voluptate doloribus excepturi, molestias eos officiis, cumque eum voluptatum maxime a laborum! In quas repellendus itaque. Iure deleniti modi ea facilis!
-            </p>
-        </div>
+            <div class="quote">
+            </div>
     </div>
     
                      
@@ -124,7 +144,7 @@
         <div class="workout-banner">
             <h2>This week you owe: </h2>
         </div>
-        <div class="workout-data-container">
+        <div class="workout-container">
             <!-- generate workout -->
         </div>
     </div>             
@@ -208,11 +228,12 @@
                 <!-- style -->
                 <!-- js connection -->
                 <div class="form-contain">
-                    <h3 class="search-heading">Find a local gym!</h3>
-                    <form class="yelp">
-                      <input placeholder="location" id="location" type="text">
-                      <input type="submit">
-                </form>
+
+                    <h3 class="search-heading">Gyms near you!</h3>
+
+
+                    
+
                 <div class="gym-container">
 
                 </div>
@@ -253,6 +274,7 @@
 <!--------------------------------------- Scripts --------------------------------------->
     <script src="./scripts/script.js"></script>
     <script src="./scripts/auth.js"></script>
+  
 
 
     </body>

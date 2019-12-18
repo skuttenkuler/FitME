@@ -1,80 +1,94 @@
 
 
 /////////////////////////// Sign Up ///////////////////////////
-const signUpForm = $("#signup");
-signUpForm.on("submit", function(event){
+const signupForm = $('#signup');
+  signupForm.on('submit', (event) => {
     event.preventDefault();
-    const user = $("#username").val();
-    //push info to database collection
-    // db.collection(user).add({
-    //     name: signUpForm.username.value,
-    //     height:signUpForm.height.value,
-    //     weight:signUpForm.weight.value,
-    //     gender:signUpForm.gender.option.value,
-    //     goal:signUpForm.gainlose.option.value,
-    // })
-    const email = $("#signupEmail").val();
-    const password = $("#signupPassword").val();
-
-    auth.createUserWithEmailAndPassword(email,password,username).then(cred => {
-        return db.collection('users').doc(cred.user.id).set({
-            // set all the info and value
-            username: signUpForm.username.value,
-            height:signUpForm.height.value,
-            weight:signUpForm.weight.value,
-            age:signUpForm.age.value,
-            activity:signUpForm.activity.value,
-            gender:signUpForm.gender.value,
-            goal:signUpForm.goal.value,
-
-        });
-        
+    
+    // get user info
+    const email = $('#signupEmail').val();
+    const password = $('#signupPassword').val();
+  
+    // sign up the user
+    auth.createUserWithEmailAndPassword(email, password).then(cred => {
+        console.log(cred.user.uid);
+        var userID = cred.user.uid;
+        console.log(userID)
+      return db.collection("users").doc(userID).set({
+            name:$("#name").val(),
+            height: $("#height").val(),
+            weight:$("#weight").val(),
+            age:$("#age").val(),
+            days:$("#days").val(),
+            gender:$("#gender").val(),
+            activity:$("#activity").val(),
+      });
     }).then(() => {
-         //console.log(cred);
-         
-         //after sign in close modal
-         //M.Modal.getInstance(modal).close();
-         //for future reset the form
-        signUpForm.reset();
+      signupForm.empty();
     });
-});
-
+  });
 /////////////////////////// Login User ///////////////////////////
 const loginForm = $("#login");
-loginForm.on("submit", function(event){
+  loginForm.on('submit', (event) => {
     event.preventDefault();
-
-    // assign user info
-    const email = $("#loginEmail").val();
-    const password = $("#loginPassword").val();
+    
+    // get user info
+    const email = $('#loginEmail').val();
+    const password = $('#loginPassword').val();
+  
     // log the user in
-    auth.signInWithEmailAndPassword(email, password).then(cred => {
-        //console.log(cred.user)
-        //after login close and reset Modal
-        $(".modal").attr('style', 'display: none')
-        loginForm.reset();
+    auth.signInWithEmailAndPassword(email, password).then((cred) => {
+      // close the signup modal & reset form
+        $('#signin-modal').attr('style', 'display: none');
+        $('#logout-btn').attr('style', 'display:block');
+        console.log(cred);
+      loginForm.empty();
     });
-});
+  
+  });
+   
 //log user out
-const logout = $(".signout");
+const logout = $("#logout-btn");
 logout.on("click", function(event){
     event.preventDefault();
     auth.signOut().then(() => {
         console.log("signed out")
-        login = $(".")
-    })
-})
+    });
+});
 
 // listen for state of auth status change
+
 auth.onAuthStateChanged(user => {
-    //console.log(user)
-    if(user){
-        console.log("user logged in:", user)
-    } else {
-        console.log("user logged out")
-    }
-})
+    if (user) {
+      //console.log("signed in");
+      db.collection("users").doc(user.uid).get().then(doc => {
+          userData = doc.data();
+          // console.log(userData.name)
+          //welcome banner to dashboard
+          username = userData.name;
+          welcome = $("<h1>").text("Welcome " + username + "!");
+          accountDetails = $("<div>").addClass("accDetails");
+          stats = $("<h2>").text("Your personal stats : ");
+          age = $("<p>").text("You are " + userData.age + " years old.");
+          height = $("<p>").text("Your are " + userData.height + " inches tall.");
+          weight = $("<p>").text("You weigh " + userData.weight + " lbs.");
+          
+          accountDetails.append(stats, age, height, weight);
+          $(".welcome-banner").append(welcome);
+          $("#account-details").append(accountDetails);
+      });
+      $('#signin-modal').attr('style', 'display: none');
+      $('#logout-btn').attr('style', 'display:block');
+      $('#login-btn').attr('style', 'display:none');
+      }   
+        else {
+          console.log('user logged out');
+          $("#account-details").empty()
+          $('#signin-modal').attr('style', 'display: block');
+      
+          }
+        
+      });
 
 
-
-
+  
