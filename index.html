@@ -37,7 +37,7 @@
             <div id="signin-modal" class="modal">
                 <div class="modal-content">
                     <div id="signin-container" class="pure-g">
-                        <div id="signin">
+                        <div id="signin" class="pure-u">
                             <form id="login" class="pure-form pure-form-aligned">
                                 <fieldset>
                                             
@@ -53,7 +53,14 @@
                                                 
                                     </fieldset>
                             </form>
-                            <button class="accountbutton" >No Account? Sign Up!</button>
+                            <div>
+                                <button class="accountbutton" >No Account? Sign Up!</button>
+                            </div>
+                            <div>
+                                <button class="forgot-btn" >Forgot Password?</button>
+                            </div>
+
+                        
                         </div>
                         
                     </div>
@@ -102,6 +109,38 @@
                             <button class="accountbutton2" >Already have an account? Sign In!</button>
                     </div>
                 </div>
+                            <!-------------------------- Forgot Password Modal ------------------------>
+
+
+                <div id="forgot-modal" class="modal">
+                        <div class="modal-content">
+                            <div id="forgotpassword-container" class="pure-g">
+                                <div id="forgotpassword" class="pure-u">
+                                    <form id="forgot" class="pure-form pure-form-aligned">
+                                        <fieldset>
+                                                    
+                                            <div class="pure-control-group">
+                                                <label id="forgotemail" for="email">Email Address</label>
+                                                <input id="forgotemail" type="email" placeholder="Email Address">
+                                            </div>
+                
+                                                <button type="submit" id="forgotP-btn" class="pure-button pure-button-primary">Send Reset Email</button>
+                                                        
+                                        </fieldset>
+                                    </form>
+                                    <div>
+                                        <button class="accountbutton" >No Account? Sign Up!</button>
+                                    </div>
+                                    <div>
+                                        <button class="accountbutton2" >Sign In!</button>
+                                    </div>
+        
+                                
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
 
     <!-------------------------------------------- DASHBOARD -------------------------------------------->
     <div id="home" class="home">

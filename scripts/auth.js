@@ -25,6 +25,7 @@ const signupForm = $('#signup');
       });
     }).then(() => {
       signupForm.empty();
+      signupForm.attr('style', "display: hidden");
     });
   });
 /////////////////////////// Login User ///////////////////////////
@@ -45,6 +46,28 @@ const loginForm = $("#login");
       loginForm.empty();
     });
   
+  });
+    
+  /////////////////////////// Forgot Password  ///////////////////////////
+const submitForgot = $("#forgotP-btn");
+submitForgot.on('submit', (event) => {
+    event.preventDefault();
+
+    const email = $('forgotemail').val();
+    firebase.auth().sendPasswordResetEmail(email).then(function() {
+      // Password reset email sent.
+      forgotPassword.empty();
+    })
+    .catch(function(error) {
+      // Error occurred. Inspect error.code.
+    });
+    
+  });
+  const forgotPassword = $('.forgot-btn');
+  forgotPassword.on('click', function(){
+    $('#forgot-modal').attr('style', 'display: block');
+    $('#signin-modal').attr('style', 'display: none');
+
   });
    
 //log user out
