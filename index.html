@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Pure.css -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    
+    <!-- test css for yelp api -->
     <!-- window scale with Pure.css -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <title>FitME</title>
 </head>
 <body>
@@ -19,7 +21,7 @@
         <div class="pure-menu pure-menu-horizontal">
                 <a href="#home" class="pure-menu-heading pure-menu-link">FitME</a>
                 <ul class="pure-menu-list">
-                    <li class="pure-menu-item"><a href="" class="pure-menu-link">Account</a></li>
+                    <li class="pure-menu-item"><a href="#" id="account-btn"class="pure-menu-link">Account</a></li>
                     <li class="pure-menu-item"><a href="#workout" class="pure-menu-link">Workout</a></li>
                     <li class="pure-menu-item"><a href="#nutrition" class="pure-menu-link">Nutrition</a></li>
                     <li class="pure-menu-item"><a href="#gyms" class="pure-menu-link">Gyms</a></li>
@@ -28,7 +30,8 @@
                 </ul>
         </div>
     </div>
-    <div id="main-body">
+    
+        <div id="main-body">
     <!-- website container -->
     
     
@@ -37,7 +40,7 @@
             <div id="signin-modal" class="modal">
                 <div class="modal-content">
                     <div id="signin-container" class="pure-g">
-                        <div id="signin">
+                        <div id="signin" class="pure-u">
                             <form id="login" class="pure-form pure-form-aligned">
                                 <fieldset>
                                             
@@ -64,35 +67,46 @@
                     <div class="signup-modal-content">
                             <form id="signup" action="" method="POST" class="pure-form pure-form-aligned">
                                     <div class="logo-header">
-                                            <h1>F i t M E</h1>    
+                                            <h1>F i t M E Account Registration</h1>    
                                         </div>
                                     <!-- add headshot-->
                                     <!-- height -->
                                     <fieldset class="pure-group" id="inputs">
-                                        <input id="height" placeholder="Your height..." >
+                                        <input id="height" placeholder="Your height..ex. 5.7 or 4.3" >
+                                        <p>must be in inches: 4ft: 48in, 5ft: 60in, 6ft: 72, 7ft: 84in</p>
                                         <!-- weight -->
-                                        <input id="weight" placeholder="Your weight...." >
-                                        <!-- gender -->
+                                        <input id="weight" placeholder="Your weight...." ><span>
+                                        <p>pounds</p>
+                                        <input id="age" placeholder="Your age...">
+                                        <p>How many days do you plan to workout each week?</p>
+                                        <input id="days" placeholder="...">
                                     </fieldset>
                                     <fieldset>
                                         <label>Gender:</label>
-                                        <select id="gender" class="gender" >
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                        <select id="gender" class="gender">
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
                                         </select>
                                     </fieldset>
-                                    
-                                        <!-- gain or loose -->
+                                    <fieldset>
+                                        <label>How active are you?</label>
+                                        <select id="activity" class="activity" >
+                                            <option value="0">Not very</option>
+                                            <option value="1">Moderate</option>
+                                            <option value="2">Very</option>
+                                        </select>
+                                    </fieldset>
+                                    <!-- gain or loose -->
                                         <fieldset class="pure-group">
                                                 <label>Goal:</label>
                                                 <select id="gainlose"class="gainLose" >
-                                                    <option value="gain">Gain Muscle</option><br>
-                                                    <option value="lose">Loose Weight</option>
+                                                    <option value="0">Loose Weight</option><br>
+                                                    <option value="1">Gain Muscle</option>
                                                 </select>
                                         </fieldset>
                                     </fieldset>
                                     <fieldset class="pure-group" id="inputs">
-                                        <input id="username" placeholder="Username..." >
+                                        <input id="name" placeholder="Name..." >
                                         <input  id="signupEmail" placeholder="Email..." >
                                         <input id="signupPassword" placeholder="Password..." >
                                         <input  id="signup-button" type="submit">
@@ -102,11 +116,22 @@
                             <button class="accountbutton2" >Already have an account? Sign In!</button>
                     </div>
                 </div>
-
+    <!-------------------------------------------- Account Modal -------------------------------------------->
+                <div id="account-modal" class="modal">
+                    <div class="modal-content">
+                        <div id="account-container" class="pure-g">
+                            <div id="account-details" class="pure-u">
+                                <span class="close">&times;</span>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
     <!-------------------------------------------- DASHBOARD -------------------------------------------->
     <div id="home" class="home">
         <div class="welcome-banner">
-            <H2>welcome user</H2>
+            
         </div>
         <div class="motivational">
             <div class="quote">
@@ -120,41 +145,15 @@
         <div class="workout-banner">
             <h2>This week you owe: </h2>
         </div>
-        <div class="workout-data-container">
+        <div class="workout-container">
             <!-- generate workout -->
         </div>
     </div>             
         
     
-    <!-- <div class="pageTitle">Workout</div>
-                </div>
-                <div class="pure-g" id="currentWeek">
-                    <div class="pure-u-1-8" id="hideMe">&nbsp;</div>
-                    <div class="pure-u-3-4 weekData" id="currentWeekData">
-                        <h2>This Week</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat venenatis mauris. Fusce sed massa vehicula augue scelerisque ullamcorper. Suspendisse laoreet molestie lorem, vel fermentum ex volutpat eu. Nam lorem lectus, viverra at enim ut, ultricies tincidunt tortor. Integer orci mi, viverra egestas venenatis vel, blandit ut risus. Phasellus maximus dolor vel fermentum pretium. Nunc dapibus diam at velit lobortis egestas. Proin ac facilisis neque, sed congue nulla.</p>
-                    </div>
-                    <div class="pure-u-1-8" id="hideMe">&nbsp;</div>
-                </div>
-                <div class="pure-g" id="lastWeek">
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                    <div class="pure-u-1-2 weekData" id="priorWeekData-1">
-                        <h2>Last Week</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat venenatis mauris. Fusce sed massa vehicula augue scelerisque ullamcorper. Suspendisse laoreet molestie lorem, vel fermentum ex volutpat eu. Nam lorem lectus, viverra at enim ut, ultricies tincidunt tortor. Integer orci mi, viverra egestas venenatis vel, blandit ut risus. Phasellus maximus dolor vel fermentum pretium. Nunc dapibus diam at velit lobortis egestas. Proin ac facilisis neque, sed congue nulla.</p>
-                    </div>
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                </div>
-                <div class="pure-g" id="priorWeek-1">
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                    <div class="pure-u-1-2 weekData" id="priorWeekData-2">
-                        <h2>Week Mon Day - Mon Day Year</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat venenatis mauris. Fusce sed massa vehicula augue scelerisque ullamcorper. Suspendisse laoreet molestie lorem, vel fermentum ex volutpat eu. Nam lorem lectus, viverra at enim ut, ultricies tincidunt tortor. Integer orci mi, viverra egestas venenatis vel, blandit ut risus. Phasellus maximus dolor vel fermentum pretium. Nunc dapibus diam at velit lobortis egestas. Proin ac facilisis neque, sed congue nulla.</p>
-                    </div>
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                </div>
-   
+
             
-    <------------------------------------------- nutrition -------------------------------------------->
+    <!------------------------------------------- nutrition -------------------------------------------->
     <div id="nutrition" class="nutrition">
             <div class="nutrition-banner">
                 <h2>Daily Food Plan: </h2>
@@ -162,50 +161,42 @@
             <div class="nutrition-data-container">
                 <!-- generate workout -->
                 <ul>
-                    <li>calories: </li>
-                    <li>macros: </li>
-                    <li>water: </li>
+                    <li>Calories: <span id="recCal"> </span></li>
+                    <li>Fats: <span id="fatGrams"></span> Grams </li>
+                    <li>Proteins: <span id="proteinGrams"></span> Grams</li>
+                    <li>Carbohydrates: <span id="carbGrams"></span> Grams</li>
+                    <li>Water: 2.5 liters</li>
                 </ul>
             </div>
         </div>     
-     <!-- <div class="pageTitle">Nutrition</div>
-                </div>
-                <div class="pure-g" id="calories">
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                    <div class="pure-u-1-2 userInfo">
-                        <h2>Calories</h2>
-                
-                    </div>
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                </div>
-                <div class="pure-g" id="macros">
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                    <div class="pure-u-1-2 userInfo">
-                        <h2>Macros</h2>
-                        
-                    </div>
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                </div>
-                <div class="pure-g" id="water">
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                    <div class="pure-u-1-2 userInfo">
-                        <h2>Water</h2>
-                        
-                    </div>
-                    <div class="pure-u-1-4" id="hideMe">&nbsp;</div>
-                </div> -->
+    
     <!------------------------------------------- GYMS -------------------------------------------->
     <div id="gyms"class="gyms">
-            <div class="gyms-banner">
-                <h2>Find a gym near you!</h2>
-            </div>
-            <div class="gym-api-container">
+    
+                <!-- input their location to pull up list of nearby gyms -->
+                <!-- to do list:  -->
+                <!-- style -->
+                <!-- js connection -->
+                <div class="form-contain">
+
+                    <h3 class="search-heading">Gyms near you!</h3>
+
+
+                    
+
+                <div class="gym-container">
+
+                </div>
+                  </div>
+                <!--  end input  -->
+            
                 <!-- generate workout -->
                 
-            </div>
+            
         </div>     
     
 </div>
+
 <!--------------------------------------- Firebase --------------------------------------->
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
@@ -234,6 +225,7 @@
 <!--------------------------------------- Scripts --------------------------------------->
     <script src="./scripts/script.js"></script>
     <script src="./scripts/auth.js"></script>
+  
 
 
     </body>

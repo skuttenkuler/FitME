@@ -1,14 +1,14 @@
 
-
-
 /*************** NAVBAR ***************/
 .pure-menu{
   position: fixed;
   top: 0;
-  background-color: darkslategray;
+  background-color: rgb(0, 0, 0);
   color: aliceblue;
   font-size: 25px;
   height: 4rem;
+  z-index: 100;
+  opacity: 75%;
 
 }
 /****************** MODALS ******************/
@@ -68,31 +68,34 @@
 .main-body{
   height: 100%;
   width: 100%;
+  margin: 20px;
 }
 .home{
   width: 100%;
   height: 900px;
   background-image: url("../images/barbell.png");
   background-size: cover;
+
   
 }
 .quote{
   width: 100%;
   height: 450px;
+  /* margin-right: 200px; */
 }
 .welcome-banner{
   display: flex;
   color: whitesmoke;
   font-size: 30px;
-  padding-top: 160px;
-  margin-left: 250px;
+  padding-top: 10%;
+  margin-left: 18%;
 }
 .motivational{
   display: flexbox;
   color:whitesmoke;
   font-size: 20px;
   width: 660px;
-  margin-left:460px;
+  margin-left:40%;
   
 }
 /****************** WORKOUT ******************/
@@ -101,19 +104,19 @@
   height: 900px;
   background-image: url("../images/crossfit.png");
   background-size: cover;
-  
 }
 .workout-banner{
   display: flex;
   color: whitesmoke;
   font-size: 30px;
-  padding-top: 160px;
-  margin-left: 250px;
+  margin-left: 18%; 
+  padding-top: 10%;
 }
 .workout-container{
   width: 100%;
   height: 200px;
-  margin-left: 200px;
+  /* margin-left: 200px; abc */ 
+  margin-left: 20%;
 }
 .w1{
   display: inline-block;
@@ -134,7 +137,7 @@
   height: 900px;
   background-image: url("../images/food.png");
   background-size: cover;
-  
+
 }
 .nutrition-banner{
   position: absolute;
@@ -144,12 +147,12 @@
   background-color: darkcyan;
   border-radius: 25px;
   font-size: 30px;
-  margin-top: 260px;
-  margin-left: 550px;
+  margin-top: 5%;
+  margin-left: 20%;
 }
 .nutrition-banner h2{
-  padding-left: 20px;
-  margin-bottom: 10px;
+  /* padding-left: 20px; */
+  /* margin-bottom: 10px; */
 }
 .nutrition-data-container{
   position: absolute;
@@ -158,16 +161,16 @@
   background-color:darkcyan;
   color: #F8EA8C;
   opacity: .9;
-  margin-top:380px;
-  margin-left:450px; 
+  margin-top:15%;
+  margin-left:25%; 
   border: 5px solid #A4E8E0;
   border-radius: 15px;
   box-shadow: 5px 10px #F8EA8C; 
 
 }
 .nutrition-data-container ul{
-  padding-left: 140px;
-  padding-top:80px;
+  /* padding-left: 140px; abc nothing*/
+  padding-top:35px;
   list-style-type: none;
   font-size: 40px;
 }
@@ -175,9 +178,8 @@
 .gyms{
   width: 100%;
   height: 1200px;
-  background-color: pink;
-
-  
+  background-image: url("../images/sf.png");
+  background-size:cover;
 }
 .gyms-banner{
   position: absolute;
@@ -199,6 +201,7 @@
 
 
 
+
 /******************  ******************/
 
 /*  yelp*/
@@ -209,6 +212,9 @@
     margin: 0 auto;
     position:relative;
     left:30%;
+    top:15%;
+    background-color: grey;
+    opacity: .8;
   }
 .gymDiv{
     width:575px;
@@ -218,16 +224,6 @@
     display: block;
     margin: 10px;
   }
-
-  /* .container {
-    border: 2px solid black;
-    overflow: auto;
-    width: 60%;
-    display: block;
-    margin: 10px auto;
-    padding: 20px;
-    height: 80vh;
-  } */
 
   h2 {
     text-align: center;
@@ -248,3 +244,44 @@
   .address {
     margin-bottom: 120px;
   }
+
+@media only screen and (max-width: 600px) {
+  body {
+    display: inline-block;
+  }
+  .welcome-banner{
+   
+    padding-top: 10%;
+    margin-left: 10px;
+  }
+  .motivational{
+  
+    margin-left:10px;
+    
+  }
+  .workout-container{
+   
+    margin-left: 3px;
+  }
+  .workout{
+   
+    height: 1000px;
+   
+  }
+  .nutrition-data-container{
+   
+    margin-top:70%;
+    margin-left:10%; 
+
+  
+  }
+  .nutrition-banner{
+    
+    margin-top: 25%;
+    margin-left: 20%;
+  }
+  .gymDiv{
+    width:400px;
+    max-height: 100px;
+}
+}
