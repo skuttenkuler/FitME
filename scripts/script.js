@@ -176,7 +176,7 @@ $(document).ready(function () {
           $("#fatGrams").text(fatMacro.toFixed());
         }
       }
-displayGyms();
+// displayGyms();
 calculateCalories();
 
     }
@@ -230,8 +230,7 @@ calculateCalories();
 
     //////////// end Yelp /////////
 
-
-
+  
 
     //////////// yelp////////////
     $(".yelp").on("submit", function () {
@@ -248,8 +247,9 @@ calculateCalories();
           authorization: "Bearer b7kV1caMXp8WNjvyHsZeiJkU9qJo3wDv58LppHhJgGk8Un8C3f3Ezoz3y-7jSwklVXIvXeb3Su4fZjKxJE0zZCqp10H5kKDReI1MqlcDUtopgKNuWWoQIr7pIAv0XXYx"
         }
       }).then(function (response) {
+        $(".gym-container").empty();
 
-
+       
         for (var i = 0; i < 4; i++) {
           gymDiv = $("<div>").addClass("gymDiv");
           gymDiv.append('<img class="thumbnail" src="'
