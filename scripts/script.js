@@ -176,8 +176,8 @@ $(document).ready(function () {
           $("#fatGrams").text(fatMacro.toFixed());
         }
       }
-// displayGyms();
-calculateCalories();
+      // displayGyms();
+      calculateCalories();
 
     }
 
@@ -187,59 +187,18 @@ calculateCalories();
 
 
 
-    /////////// GYMS ///////////////
+  /////////// GYMS ///////////////
 
-    function displayGyms() {
-      $(".gym-container").empty();
-      navigator.geolocation.getCurrentPosition(function (position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        console.log(lat, lon)
-
-
-        var queryURL = "https://api.yelp.com/v3/businesses/search?term=gym&latitude=" + lat + "&longitude=" + lon;
-
-        $.ajax({
-          url: queryURL,
-          method: "GET",
-          headers: {
-            authorization: "Bearer b7kV1caMXp8WNjvyHsZeiJkU9qJo3wDv58LppHhJgGk8Un8C3f3Ezoz3y-7jSwklVXIvXeb3Su4fZjKxJE0zZCqp10H5kKDReI1MqlcDUtopgKNuWWoQIr7pIAv0XXYx"
-          }
-        }).then(function (response) {
+  function displayGyms() {
+    $(".gym-container").empty();
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      console.log(lat, lon)
 
 
-          for (var i = 0; i < 4; i++) {
-            gymDiv = $("<div>").addClass("gymDiv");
-            gymDiv.append('<img class="thumbnail" src="'
-              + response.businesses[i].image_url + '"/><h2 class="name">'
-              + response.businesses[i].name + '</h2><p class="phone">'
-              + response.businesses[i].display_phone + '</p><p class="address">'
-              + response.businesses[i].location.address1 + ', '
-              + response.businesses[i].location.city + ' '
-              + response.businesses[i].location.zip_code + '</p>');
-            $(".gym-container").append(gymDiv);
-          }
+      var queryURL = "https://api.yelp.com/v3/businesses/search?term=gym&latitude=" + lat + "&longitude=" + lon;
 
-        })
-      })
-    }
-
-
-
-
-
-    //////////// end Yelp /////////
-
-  
-
-    //////////// yelp////////////
-    $(".yelp").on("submit", function () {
-      event.preventDefault();
-      $(".gym-container").empty();
-
-      var location = $("#location").val();
-
-      var queryURL = "https://api.yelp.com/v3/businesses/search?term=gym&location=" + location;
       $.ajax({
         url: queryURL,
         method: "GET",
@@ -247,9 +206,8 @@ calculateCalories();
           authorization: "Bearer b7kV1caMXp8WNjvyHsZeiJkU9qJo3wDv58LppHhJgGk8Un8C3f3Ezoz3y-7jSwklVXIvXeb3Su4fZjKxJE0zZCqp10H5kKDReI1MqlcDUtopgKNuWWoQIr7pIAv0XXYx"
         }
       }).then(function (response) {
-        $(".gym-container").empty();
 
-       
+
         for (var i = 0; i < 4; i++) {
           gymDiv = $("<div>").addClass("gymDiv");
           gymDiv.append('<img class="thumbnail" src="'
@@ -264,8 +222,8 @@ calculateCalories();
 
       })
     })
-
-  })
+  }
+})
 
 
 
