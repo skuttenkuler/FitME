@@ -30,6 +30,7 @@ App that gives users individual workout and nutritional plans based on physical 
 ![Alt text](./images/screen7.png?raw=true "Optional Title")
     - Get local gyms from Yelp API
 ![Alt text](./images/screen8.png?raw=true "Optional Title")
+
 # Authors
 - Alexis Bounds 
     - [Github](https://www.github.com/boundsalexis)

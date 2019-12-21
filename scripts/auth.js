@@ -62,10 +62,12 @@ auth.onAuthStateChanged(user => {
     if (user) {
       //console.log("signed in");
       db.collection("users").doc(user.uid).get().then(doc => {
+        $(".welcome-banner").empty();
           userData = doc.data();
           // console.log(userData.name)
           //welcome banner to dashboard
           username = userData.name;
+
           welcome = $("<h1>").text("Welcome " + username + "!");
           accountDetails = $("<div>").addClass("accDetails");
           stats = $("<h2>").text("Your personal stats : ");
