@@ -16,7 +16,7 @@ $(document).ready(function(){
                   $(".quote").append(quoteDiv, authorDiv);
                 })
 
-//// ^for APIS
+
 
   const modal = $('#signin-modal');
   const modalBtn = $('#login-btn');
@@ -51,10 +51,13 @@ $(document).ready(function(){
    var activityLevel;
 
 
+/////////workouts////////
+
     var H;
       var W;
       var A;
       var ALevel;
+
 // retrieve items from Firbase
 auth.onAuthStateChanged(user => {
 if (user) {
@@ -70,12 +73,22 @@ if (user) {
       console.log(age);
 //////FOR USE IN CALORIE EQUATION///////
       H= parseInt(height);
+
+      W= parseInt(weight);
+      A= parseInt(age);
+      ALevel= parseInt(activityLevel);
+      
+      
+      displayWorkout();
+
        W= parseInt(weight);
        A= parseInt(age);
        ALevel= parseInt(activityLevel);
        console.log(days,"______");
       displayWorkout(days);
+
       calculateCalories();
+      displayGyms(); 
     });
     //Workout
 
@@ -122,6 +135,14 @@ if (user) {
                   }
     }
       
+//actually calculates calories
+//displaying function
+ function displayCurrentMacros(){
+     $("#recCal").text(calorieRecommendation);
+      
+     }
+
+
     //calorie formula
       function calculateCalories(){
          ////// STANDARD NUMVER FOR MACRO CALCULATION
@@ -161,8 +182,18 @@ if (user) {
             $("#proteinGrams").text(proteinMacro.toFixed());
             $("#fatGrams").text(fatMacro.toFixed());
         }
+
+       
+  
+      }
+        
+            displayCurrentMacros();
+              
+           
+
       }       
            displayGyms(); 
+
       };
     });
     /////////// GYMS ///////////////
@@ -202,6 +233,12 @@ if (user) {
       })
     }
 
+
+});
+
+  
+//////////// end Yelp /////////
+
    
       
      
@@ -237,7 +274,6 @@ $(".yelp").on("submit", function () {
 })
 })
 
-})
 
 
 
