@@ -18,11 +18,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
   const modal = $('#signin-modal');
   const modalBtn = $('#login-btn');
   const closeModal = $(".close");
@@ -33,7 +28,6 @@ $(document).ready(function(){
   // Events
   modalBtn.on('click', function(){
     modal.attr('style','display: block')
-    console.log("clicked")
   });
   
 
@@ -49,43 +43,64 @@ $(document).ready(function(){
       $("#account-modal").attr('style', 'display: block')
     });
 
+    var height;
+    var weight;
+    var age;
+    var gender;
+    var days;
+   var activityLevel;
 
 
 /////////workouts////////
+
+    var H;
+      var W;
+      var A;
+      var ALevel;
+
 // retrieve items from Firbase
 auth.onAuthStateChanged(user => {
 if (user) {
   db.collection("users").doc(user.uid).get().then(doc => {
         userData = doc.data();
-        height= userData.height;
-        weight= userData.weight;
-        age = userData.age;
+         height= userData.height;
+       weight= userData.weight;
+         age = userData.age;
         gender = userData.gender;
         days = userData.days;
         activityLevel= userData.activity;
-        //console.log(gender)
-     
+        console.log(gender);
+      console.log(age);
 //////FOR USE IN CALORIE EQUATION///////
       H= parseInt(height);
+
       W= parseInt(weight);
       A= parseInt(age);
       ALevel= parseInt(activityLevel);
       
       
       displayWorkout();
+
+       W= parseInt(weight);
+       A= parseInt(age);
+       ALevel= parseInt(activityLevel);
+       console.log(days,"______");
+      displayWorkout(days);
+
       calculateCalories();
       displayGyms(); 
     });
     //Workout
-    function displayWorkout(){
-      //console.log(days)
+
+    function displayWorkout(days){
+    $(".workout-container").empty(); 
       if(days === "1"){
           w1 = $("<button>").addClass("w1").text(" Intense cardio and lift weights")
           $(".workout-container").append(w1);
         } 
           else if(days === "2"){
             w1 = $("<button>").addClass("w1").text(" Intense cardio and upper body")
-            w1 = $("<button>").addClass("w1").text(" Intense cardio and lower body")
+            w2 = $("<button>").addClass("w1").text(" Intense cardio and lower body")
             $(".workout-container").append(w1,w2);
           }
             else if(days === "3"){
@@ -134,7 +149,7 @@ if (user) {
           var carbs_per_gram = 4;
           var protein_per_gram =4;
           var fat_per_gram= 9;
-        if (gender == 0){
+        if (gender === "M"){
           //console.log("chick")
           //Adult male: 66 + (6.3 x body weight in lbs.) + (12.9 x height in inches) - (6.8 x age in years) = BMR
           //formula from http://www.checkyourhealth.org/eat-healthy/cal_calculator.php
@@ -145,13 +160,13 @@ if (user) {
           proteinMacro = (calorieRecommendation) / protein_per_gram;
           fatMacro = (calorieRecommendation ) / fat_per_gram;
             
-            
+            $("#recCal").text(calorieRecommendation);
             $("#carbGrams").text(carbMacro.toFixed());
             $("#proteinGrams").text(proteinMacro.toFixed());
             $("#fatGrams").text(fatMacro.toFixed());
           
         }
-        else if(gender == 1){
+        else if(gender === "F"){
           
           //Adult female: 655 + (4.3 x weight in lbs.) + (4.7 x height in inches) - (4.7 x age in years) = BMR
           
@@ -161,11 +176,13 @@ if (user) {
           proteinMacro = (calorieRecommendation) / protein_per_gram;
           fatMacro = (calorieRecommendation ) / fat_per_gram;
             
-            
+          
+            $("#recCal").text(calorieRecommendation);
             $("#carbGrams").text(carbMacro.toFixed());
             $("#proteinGrams").text(proteinMacro.toFixed());
             $("#fatGrams").text(fatMacro.toFixed());
         }
+
        
   
       }
@@ -173,11 +190,16 @@ if (user) {
             displayCurrentMacros();
               
            
+
+      }       
+           displayGyms(); 
+
       };
     });
     /////////// GYMS ///////////////
       
     function displayGyms(){
+      $(".gym-container").empty();
       navigator.geolocation.getCurrentPosition(function(position){
         var lat = position.coords.latitude;
         var lon = position.coords.longitude; 
@@ -207,14 +229,53 @@ if (user) {
             $(".gym-container").append(gymDiv);
           } 
           
-        });
-      });
-    };
+        })
+      })
+    }
+
 
 });
 
   
 //////////// end Yelp /////////
+
+   
+      
+     
+//////////// yelp////////////
+$(".yelp").on("submit", function () {
+  event.preventDefault();
+  $(".gym-container").empty();
+
+  var location = $("#location").val();
+  
+  var queryURL ="https://api.yelp.com/v3/businesses/search?term=gym&location="+ location;
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    headers: {
+      authorization: "Bearer b7kV1caMXp8WNjvyHsZeiJkU9qJo3wDv58LppHhJgGk8Un8C3f3Ezoz3y-7jSwklVXIvXeb3Su4fZjKxJE0zZCqp10H5kKDReI1MqlcDUtopgKNuWWoQIr7pIAv0XXYx"
+    }
+  }).then(function(response){
+    
+    
+  for (var i = 0; i < 4; i++) {
+  gymDiv = $("<div>").addClass("gymDiv");
+  gymDiv.append('<img class="thumbnail" src="' 
+                      + response.businesses[i].image_url + '"/><h2 class="name">' 
+                      + response.businesses[i].name + '</h2><p class="phone">'
+                      + response.businesses[i].display_phone+'</p><p class="address">' 
+                      + response.businesses[i].location.address1 + ', ' 
+                      + response.businesses[i].location.city + ' ' 
+                      + response.businesses[i].location.zip_code + '</p>');
+  $(".gym-container").append(gymDiv);
+}
+
+})
+})
+
+
+
 
 
 
