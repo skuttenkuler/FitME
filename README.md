@@ -13,7 +13,7 @@ App that gives users individual workout and nutritional plans based on physical 
 
 # Screenshot
     - Welcome Screen
-![Alt text](./mages/screen.png?raw=true "Optional Title")
+![Alt text](./images/screen.png?raw=true "Optional Title")
     - Dietary Macro Calculations
 ![Alt text](./images/screen2.png?raw=true "Optional Title")
     - Display gyms within distance of current location
